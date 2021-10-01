@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <style name="Theme.WajeezTask" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">@color/teal_200</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ToolbarTextAppearance" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="CornerButton" parent="Theme.WajeezTask">
+        <item name="android:backgroundTint">@color/main_color</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:height">@dimen/button_height_normal</item>
+        <item name="shapeAppearanceOverlay">@style/MyShapeAppearance</item>
+        <item name="android:padding">@dimen/_16sdp</item>
+    </style>
+
+    <style name="MyShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSize">@dimen/spacing_normal</item>
+    </style>
+
+</resources>

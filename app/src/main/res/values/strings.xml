@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Wajeez Task</string>
+
+    <string name="ops_error">Ops, something went wrong, try again please</string>
+    <string name="timeout_error">Ops, request time out, please try again</string>
+    <string name="empty_field">Empty field</string>
+
+    <string name="caption_add_new_user">Add new user</string>
+    <string name="btn_done">Done</string>
+
+</resources>

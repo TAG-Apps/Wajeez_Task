@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- font sizes -->
+    <dimen name="font_larger">@dimen/_22sdp</dimen>
+    <dimen name="font_large">@dimen/_18sdp</dimen>
+    <dimen name="font_normal">@dimen/_15sdp</dimen>
+    <dimen name="font_small">@dimen/_12sdp</dimen>
+    <dimen name="font_tiny">@dimen/_10sdp</dimen>
+
+    <!-- typical spacing between two views -->
+    <dimen name="spacing_huge">@dimen/_40sdp</dimen>
+    <dimen name="spacing_large">@dimen/_24sdp</dimen>
+    <dimen name="spacing_normal">@dimen/_16sdp</dimen>
+    <dimen name="spacing_big">@dimen/_12sdp</dimen>
+    <dimen name="spacing_small">@dimen/_8sdp</dimen>
+    <dimen name="spacing_tiny">@dimen/_4sdp</dimen>
+
+    <!-- typical sizes of views -->
+    <dimen name="button_height_tall">@dimen/_60sdp</dimen>
+    <dimen name="button_height_normal">@dimen/_50sdp</dimen>
+    <dimen name="button_height_short">@dimen/_32sdp</dimen>
+
+
+    <!-- special values -->
+    <dimen name="car_marker_size">@dimen/_24sdp</dimen>
+    <dimen name="home_icons_size">@dimen/_24sdp</dimen>
+
+
+</resources>
