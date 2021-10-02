@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.wajeez.sample.R
 import com.wajeez.sample.databinding.ItemFilterSheetBinding
 import com.wajeez.sample.model.interfaces.OnAdapterItemClicked
 
@@ -23,10 +24,17 @@ class FilterBottomSheet constructor(
         return mBinding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mBinding.button.setOnClickListener(){
 
+           if(mBinding.radioGroup.checkedRadioButtonId == R.id.withImageRadioButton) {
+               listener.onItemClicked(1, null)
+            }else{
+               listener.onItemClicked(2, null)
+           }
+            dismiss()
+        }
     }
 }

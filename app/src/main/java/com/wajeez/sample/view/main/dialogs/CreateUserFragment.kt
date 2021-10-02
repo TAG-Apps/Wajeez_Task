@@ -60,6 +60,8 @@ class CreateUserFragment : ParentDialogFragment(R.layout.fragment_create_user) {
     }
 
     fun done() {
+        if(filePath == null)
+            addUser("")
         viewModel.uploadImage(filePath)?.observe(requireActivity(), {
             if(it.isNotEmpty())
                 addUser(it)

@@ -18,6 +18,7 @@ import com.wajeez.sample.databinding.FragmentMainBinding
 import com.wajeez.sample.view.fragment_factory.ParentFragment
 import com.wajeez.sample.viewmodel.MainFragmentViewModel
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestoreSettings
 import com.wajeez.sample.model.data.UserModel
 import com.wajeez.sample.model.interfaces.OnAdapterItemClicked
@@ -54,7 +55,11 @@ class MainFragment : ParentFragment(R.layout.fragment_main), OnAdapterItemClicke
         }
 
         mBinding.seatchEditText.doOnTextChanged { text, start, before, count ->
+            viewModel.getUsers().observe(requireActivity(), { it ->
 
+                mUsersAdapter.setUsersData(it.filter { it.name!!.contains(text.toString()) } as ArrayList<UserModel>)
+
+            })
         }
 
         getUsersData()
@@ -68,7 +73,7 @@ class MainFragment : ParentFragment(R.layout.fragment_main), OnAdapterItemClicke
 
     private fun getUsersData() {
 
-        viewModel.getUsers(1).observe(requireActivity(), {
+        viewModel.getUsers().observe(requireActivity(), {
             mUsersAdapter.setUsersData(it as ArrayList<UserModel>)
         })
     }
@@ -88,5 +93,17 @@ class MainFragment : ParentFragment(R.layout.fragment_main), OnAdapterItemClicke
 
     override fun onItemClicked(position: Int, data: Any?) {
         // filter
+        viewModel.getUsers().observe(requireActivity(), { it ->
+
+            when (position) {
+
+                1 ->  mUsersAdapter.setUsersData(ArrayList(it.sortedBy { it.profilePictureUrl!!.isEmpty()}) )
+                2 ->  mUsersAdapter.setUsersData(ArrayList(it.sortedBy { it.profilePictureUrl!!.isNotEmpty()}) )
+                else -> {
+                     mUsersAdapter.setUsersData(ArrayList(it.sortedBy { it.profilePictureUrl!!.isEmpty()}) )
+                }
+            }
+
+        })
     }
 }

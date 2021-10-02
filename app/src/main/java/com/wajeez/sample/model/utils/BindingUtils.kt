@@ -16,6 +16,8 @@ object BindingUtils {
                 .circleCrop()
                 .centerCrop() //4
                 .into(image)
+        }else{
+            image.setImageBitmap(null)
         }
     }
 }
