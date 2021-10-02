@@ -14,6 +14,7 @@ import com.google.firebase.storage.UploadTask
 import com.wajeez.sample.model.data.UserModel
 import com.wajeez.sample.model.utils.AppUtils
 import com.wajeez.sample.model.utils.USERS
+import com.wajeez.sample.model.utils.USERS_IMAGES_REFERENCE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -52,7 +53,7 @@ class CreateUserFragmentViewModel @Inject constructor(
         val mUploadeImageLiveData = MutableLiveData<String>()
 
         if(filePath != null){
-            val ref = appUtils.storageReference?.child("usersImages/" + UUID.randomUUID().toString())
+            val ref = appUtils.storageReference?.child( USERS_IMAGES_REFERENCE + UUID.randomUUID().toString())
             val uploadTask = ref?.putFile(filePath!!)
 
             val urlTask = uploadTask?.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->

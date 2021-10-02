@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.viewbinding.library.fragment.viewBinding
+import androidx.core.widget.doOnTextChanged
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,9 +20,11 @@ import com.wajeez.sample.viewmodel.MainFragmentViewModel
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.ktx.firestoreSettings
 import com.wajeez.sample.model.data.UserModel
+import com.wajeez.sample.model.interfaces.OnAdapterItemClicked
 import com.wajeez.sample.view.main.dialogs.CreateUserFragment
+import com.wajeez.sample.view.main.dialogs.FilterBottomSheet
 
-class MainFragment : ParentFragment(R.layout.fragment_main) {
+class MainFragment : ParentFragment(R.layout.fragment_main), OnAdapterItemClicked {
 
     private val TAG = "MainFragment"
 
@@ -45,14 +49,27 @@ class MainFragment : ParentFragment(R.layout.fragment_main) {
 
         context?.let { FirebaseApp.initializeApp(it) }
 
+        mBinding.btnFilter.setOnClickListener{
+            showFilterDialogSheet()
+        }
+
+        mBinding.seatchEditText.doOnTextChanged { text, start, before, count ->
+
+        }
+
         getUsersData()
+    }
+
+    fun showFilterDialogSheet() {
+
+        val sheet = FilterBottomSheet(this)
+        sheet.show(parentFragmentManager, sheet.tag)
     }
 
     private fun getUsersData() {
 
         viewModel.getUsers(1).observe(requireActivity(), {
             mUsersAdapter.setUsersData(it as ArrayList<UserModel>)
-            mUsersAdapter.notifyDataSetChanged()
         })
     }
 
@@ -67,5 +84,9 @@ class MainFragment : ParentFragment(R.layout.fragment_main) {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onItemClicked(position: Int, data: Any?) {
+        // filter
     }
 }

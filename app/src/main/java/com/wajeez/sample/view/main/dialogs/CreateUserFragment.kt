@@ -61,19 +61,19 @@ class CreateUserFragment : ParentDialogFragment(R.layout.fragment_create_user) {
 
     fun done() {
         viewModel.uploadImage(filePath)?.observe(requireActivity(), {
-            if(!it.isEmpty())
-                addUser()
+            if(it.isNotEmpty())
+                addUser(it)
         })
     }
 
-    fun addUser() {
+    private fun addUser(imagePath: String) {
 
         mBinding.editTextTextPersonName
 
         viewModel.checkViews(
             UUID.randomUUID().toString(),
             mBinding.editTextTextPersonName,
-            profilePictureUrl
+            imagePath
         )?.observe(requireActivity(), {
             if (it)
                 findNavController().navigate(CreateUserFragmentDirections.actionCreateUserFragmentToMainFragment())
@@ -89,5 +89,4 @@ class CreateUserFragment : ParentDialogFragment(R.layout.fragment_create_user) {
             filePath = data.data
         }
     }
-
 }

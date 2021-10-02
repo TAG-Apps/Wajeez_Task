@@ -42,9 +42,6 @@ class MainAdapter() :
         fun onBind(model: UserModel) {
             view.user = model
             view.textViewUserName.text = model.name
-
         }
-
     }
-
 }
