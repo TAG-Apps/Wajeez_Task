@@ -14,7 +14,6 @@ open class ParentFragment
 constructor(layoutRest: Int) :
     Fragment(layoutRest) {
 
-
     private lateinit var listener: OnProgressLoadingListener
 
     @Inject
@@ -39,12 +38,9 @@ constructor(layoutRest: Int) :
 
     }
 
-
     override fun onPause() {
         super.onPause()
         listener.hideProgress()
     }
-
-
 }
 

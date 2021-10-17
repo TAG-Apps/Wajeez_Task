@@ -57,14 +57,12 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/doneButton"
             android:layout_width="wrap_content"
-            style="@style/CornerButton"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/secondry_color"
             android:onClick="@{()-> callback.done()}"
             android:text="@string/btn_done"
             android:textAllCaps="true"
-            app:cornerRadius="@dimen/spacing_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chooseImageBtn" />

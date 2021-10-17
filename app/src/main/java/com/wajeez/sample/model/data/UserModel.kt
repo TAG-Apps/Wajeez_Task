@@ -8,7 +8,7 @@ data class UserModel(
     )
 
 {
-    constructor() : this("asdasdasdasd", "asdasdasdasd",
-        "asdasdasd"
+    constructor() : this("", "",
+        ""
     )
 }

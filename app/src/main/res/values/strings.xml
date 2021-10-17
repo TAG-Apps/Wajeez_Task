@@ -8,4 +8,15 @@
     <string name="caption_add_new_user">Add new user</string>
     <string name="btn_done">Done</string>
 
+
+    <string name="caption_filter_result">Filter Result</string>
+
+    <string name="caption_with_image">With Image</string>
+    <string name="caption_without_image">Without Image</string>
+    <string name="btn_confirm">Confirm</string>
+
+    <string name="caption_search">Search</string>
+
+
+
 </resources>

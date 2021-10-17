@@ -25,7 +25,6 @@ constructor(layoutRest: Int) :
         listener = context as OnProgressLoadingListener
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -36,15 +35,12 @@ constructor(layoutRest: Int) :
                 listener.hideProgress()
 
         })
-
     }
-
 
     override fun onPause() {
         super.onPause()
         listener.hideProgress()
     }
-
 
 }
 

@@ -17,7 +17,7 @@ class MainFragmentViewModel @Inject constructor(
     private val appUtils: AppUtils
 ) : ViewModel() {
 
-    fun getUsers(filterType: Int): LiveData<List<UserModel>> {
+    fun getUsers(): LiveData<List<UserModel>> {
 
 
         val mUsersLiveData = MutableLiveData<List<UserModel>>()
